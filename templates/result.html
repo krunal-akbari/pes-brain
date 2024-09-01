@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+<style>
+/* result-styles.css */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #242834;
+  color: #e0e7ff;
+  font-family: Roboto, sans-serif;
+}
+
+h1, p, a {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2.5rem; /* Increased font size */
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #ccc;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: center;
+  border-bottom: 1px solid #61afe6; /* Add a border */
+  padding: 10px; /* Add padding */
+  border-radius: 5px; /* Add rounded corners */
+  background-color: #282c34; /* Slightly darker background */
+}
+
+.button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #ff3333;
+}
+
+</style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>Predicted Class: {{ predicted_class }}</p>
+    <!-- <p>Prediction: {{ prediction }}</p> -->
+    <ul>
+        {% for label, probability in class_prob %}
+            <p>{{ label }}: {{ probability }}%</p>
+        {% endfor %}
+    </ul>
+    <a class = "button" href="{{ url_for('upload_file') }}">Upload Another Image</a>
+
+</body>
+</html>
+
